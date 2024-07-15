@@ -82,6 +82,7 @@ def findMedian(array:list):
     return sortedTrailing[medianIndex]
     
 # ---- Implementation from discussions using frequency table. -------
+# Complexity of O(n)
 def activityNotificationsOptimal(expenditure, d):
   freq = {}
   notify = 0
