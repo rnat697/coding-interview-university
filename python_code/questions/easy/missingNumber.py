@@ -57,7 +57,7 @@ def missingNumbersOptimal(arr:list, brr:list):
   missing = []
   
   # store frequency of numbers of the original brr array
-  for i in range(0, len(brr)):
+  for i in range(0, len(brr)): # O(m)
     elementB = brr[i]
     if elementB in freqOriginal:
       freqOriginal[elementB] += 1
@@ -65,21 +65,25 @@ def missingNumbersOptimal(arr:list, brr:list):
       freqOriginal[elementB]  = 1
   
   # store frequency of numbers of the arr array
-  for i in range(0, len(arr)):
+  for i in range(0, len(arr)): # O(n)
     elementA = arr[i]
     if elementA in freqSecond:
       freqSecond[elementA] += 1
     else:
       freqSecond[elementA]  = 1
   
-  for number, originFreq in freqOriginal.items():
+  for number, originFreq in freqOriginal.items(): # # O(m)
     # We find missing number by checking if number is not in the second freq array OR 
     # the frequency of that number in the second array is less than the original
     if number not in freqSecond or freqSecond[number] < originFreq:
       missing.append(number)
   
-  missing.sort()
+  missing.sort() # O (n log n)
   return missing
+  # O(m) + O(n) + O(m) + O(n log n)
+  # O(2m) + O(n) + O(n log n) 
+  # O(m + n) + O(n log n) < -- drop the 2 since we don't care about constants
+  # O(m + n) < -- drop O(n log n) since its lesser than O(m + n) and we care about worst case execution
   
   
 
