@@ -66,7 +66,7 @@ def binarySearchRecursive(arr:list, target:int, highIndex:int, lowIndex:int):
       binarySearchRecursive(arr, target, highIndex, lowIndex)
 
     elif(target < middleValue):
-      # increase the highIndex by midIndex + 1
+      # increase the highIndex by midIndex - 1
       highIndex = midIndex - 1
       binarySearchRecursive(arr, target, highIndex, lowIndex)
     else:
