@@ -88,6 +88,25 @@ function minimumNumber(n, password) {
 
   return Math.max(additions, 6 - n);
 }
+// regex version
+function minimumNumberRegex(n, password) {
+  // Define regex patterns for required character types
+  const hasDigit = password.match(/[0-9]/);
+  const hasLower = password.match(/[a-z]/);
+  const hasUpper = password.match(/[A-Z]/);
+  const hasSpecial = password.match(/[!@#$%^&*()\-+]/);
+
+  let additions = 0;
+
+  // Check if each type is missing
+  if (!hasDigit) additions++;
+  if (!hasLower) additions++;
+  if (!hasUpper) additions++;
+  if (!hasSpecial) additions++;
+
+  // Return the maximum of additions needed or the difference from 6
+  return Math.max(additions, 6 - n);
+}
 
 let password1 = "2bbbb";
 let result1 = minimumNumber(password1.length, password1);
